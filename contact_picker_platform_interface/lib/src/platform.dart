@@ -1,4 +1,5 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import '../contact_picker_platform_interface.dart';
 import 'email_contact.dart';
 import 'full_contact/full_contact.dart';
 import 'phone_contact.dart';
@@ -39,6 +40,10 @@ abstract class ContactPickerPlatform extends PlatformInterface {
   Future<List<PhoneContact>> pickPhoneContacts(
       {bool askForPermission = true, bool multiple = true}) {
     throw UnimplementedError('pickPhoneContacts() has not been implemented');
+  }
+
+  Future<IdentifiedContact> pickIdentifiedContact({bool askForPermission = true}) {
+    throw UnimplementedError('pickIdentifiedContact() has not been implemented');
   }
 
   Future<EmailContact> pickEmailContact({bool askForPermission = true}) async {

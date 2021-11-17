@@ -18,6 +18,17 @@ public class ContactPickerDelegate : NSObject, CNContactPickerDelegate {
         self.result = result
         self.type = type
     }
+
+    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+      if (type == "identified") {
+        let fullName = CNContactFormatter.string(from: contact, style: CNContactFormatterStyle.fullName)
+        let dict = [
+            "fullName": fullName as Any,
+            "identifier": contact.identifier as Any
+          ] as [String : Any]
+        result(dict)
+      }
+    }
     
     public func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         let contact = contactProperty.contact
@@ -97,11 +108,12 @@ public class ContactPickerDelegate : NSObject, CNContactPickerDelegate {
             let label = stringifyLabel(label: contactProperty.label)
             let dict = [
                 "fullName": fullName as Any,
+                "id": contact.identifier as Any,
                 type: [
                     type: item,
                     "label": label
                 ],
-                ] as [String : Any]
+              ] as [String : Any]
             result(dict)
         }
     }

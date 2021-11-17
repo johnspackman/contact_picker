@@ -4,6 +4,7 @@ homepage: https://github.com/DRSchlaubi/contact_picker/tree/master/contact_picke
 # NOTE: We strongly prefer non-breaking changes, even at the expense of a
 # less-clean API. See https://flutter.dev/go/platform-interface-breaking-changes
 version: 4.5.0
+publish_to: none
 
 dependencies:
   flutter:

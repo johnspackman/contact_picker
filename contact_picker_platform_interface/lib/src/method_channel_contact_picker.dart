@@ -30,6 +30,12 @@ class MethodChannelContactPicker extends ContactPickerPlatform {
               'pickContact', {'askForPermission': askForPermission})))));
 
   @override
+  Future<IdentifiedContact> pickIdentifiedContact({bool askForPermission = true}) async =>
+      IdentifiedContact.fromMap((await (_runCancellable(_channel
+          .invokeMethod<Map<dynamic, dynamic>>(
+              'pickIdentifiedContact', {'askForPermission': askForPermission})))));
+
+  @override
   Future<bool> hasPermission() async =>
       (await _channel.invokeMethod('hasPermission'));
 

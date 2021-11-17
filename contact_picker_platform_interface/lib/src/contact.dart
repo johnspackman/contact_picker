@@ -20,3 +20,29 @@ abstract class Contact {
   @override
   int get hashCode => fullName.hashCode;
 }
+
+///Phone Contact
+class IdentifiedContact extends Contact {
+  const IdentifiedContact(String? fullName, this.identifier) : super(fullName);
+
+  factory IdentifiedContact.fromMap(Map<dynamic, dynamic> map) =>
+      IdentifiedContact(map['fullName'], map['identifier']);
+
+  /// Unique identifier for the contact
+  final String? identifier;
+
+  @override
+  String toString() {
+    return 'IdentifiedContact{fullName: $fullName}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is IdentifiedContact &&
+          runtimeType == other.runtimeType &&
+          identifier == other.identifier;
+
+  @override
+  int get hashCode => identifier.hashCode;
+}

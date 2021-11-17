@@ -42,6 +42,9 @@ public class SwiftFlutterContactPickerPlugin: NSObject, FlutterPlugin {
         case "pickEmailContact":
             requestPicker(result: result, type: "email", neededProperty: CNContactEmailAddressesKey)
             break
+        case "pickIdentifiedContact":
+            requestPicker(result: result, type: "identified", neededProperty: CNContactIdentifierKey)
+            break;
 //        case "pickContact":
 //            requestPicker(result: result, type: "full", neededProperty: nil)
 //            break;

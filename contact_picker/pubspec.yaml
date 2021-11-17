@@ -3,6 +3,7 @@ description: Use Androids' and iOS' native contact pickers to chose phone number
 version: 4.5.0
 git: https://github.com/DRSchlaubi/contact_pickercop
 homepage: https://github.com/DRSchlaubi/contact_picker
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -11,8 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  contact_picker_platform_interface: ^4.5.0
-  contact_picker_web: ^4.5.0
+  contact_picker_platform_interface:
+    path: ../contact_picker_platform_interface
+  contact_picker_web:
+    path: ../contact_picker_web
 
 dev_dependencies:
   flutter_test:
